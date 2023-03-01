@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: pokemonHollow;
+    src: url("app/pokemon/style/fonts/pokemonHollow.ttf");
+}
+
+@font-face {
+    font-family: pokemonSolid;
+    src: url("app/pokemon/style/fonts/pokemonSolid.ttf");
+}
+
+.hollowFont {
+    font-family: pokemonHollow, serif;
+}
+
+.solidFont {
+    font-family: pokemonSolid, serif;
+}

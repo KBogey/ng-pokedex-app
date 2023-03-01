@@ -8,10 +8,12 @@ import {PokemonTypeColorPipe} from "./style/pokemon-type-color.pipe";
 import {PokemonService} from "./service/pokemon.service";
 import {FormsModule} from "@angular/forms";
 import { PokemonFormComponent } from './components/pokemon-form/pokemon-form.component';
+import { EditPokemonComponent } from './components/edit-pokemon/edit-pokemon.component';
 
 const pokemonRoutes: Routes = [
-    {path: 'pokemons', component: PokemonListComponent},
-    {path: 'pokemon/:id', component: PokemonDetailComponent},
+    { path: 'edit/pokemon/:id', component: EditPokemonComponent },
+    {path: 'pokemons', component: PokemonListComponent },
+    {path: 'pokemon/:id', component: PokemonDetailComponent },
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const pokemonRoutes: Routes = [
         PokemonDetailComponent,
         BorderCardDirective,
         PokemonTypeColorPipe,
-        PokemonFormComponent
+        PokemonFormComponent,
+        EditPokemonComponent
     ],
     imports: [
         CommonModule,

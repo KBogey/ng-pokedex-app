@@ -6,12 +6,12 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-pokemon-form',
   templateUrl: './pokemon-form.component.html',
-  styles: [
-  ]
+  styleUrls: ['./pokemon-form.component.css']
 })
 export class PokemonFormComponent implements OnInit {
-  @Input() pokemon: Pokemon;
-  types: string[];
+  @Input()
+  pokemon: Pokemon = new Pokemon;
+  types: string[] = [];
 
   constructor(
       private pokemonService: PokemonService,
@@ -40,10 +40,16 @@ export class PokemonFormComponent implements OnInit {
     }
   }
 
+  //validation des types
+  isTypesValid(type: string): boolean {
+    return !((this.pokemon.types.length == 1 && this.hasType(type)) || (this.pokemon.types.length > 2 && !this.hasType(type)));
+
+  }
+
   //soumettre le form
   onSubmit() {
     console.log('Submit form !');
-    this.router.navigate("/pokemon", this.pokemon.id);
+    this.router.navigate(["/pokemon", this.pokemon.id]);
 
   }
 }

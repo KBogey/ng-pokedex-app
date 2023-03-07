@@ -7,7 +7,7 @@ import {PokemonService} from "../../service/pokemon.service";
   selector: 'app-edit-pokemon',
   template: `
     <div *ngIf="pokemon">
-        <h2  class="center red-text text-darken-3">Éditer {{pokemon?.name}}</h2>
+        <h2  class="hollowFont center red-text text-darken-3">Modifier {{pokemon.name}}</h2>
             <p class="center">
                 <img [src]="pokemon.picture" alt="{{pokemon.name}}"/>
             </p>
@@ -28,7 +28,8 @@ export class EditPokemonComponent implements OnInit{
   ngOnInit() {
     const pokemonId: string|null = this.route.snapshot.paramMap.get('id');
     if(pokemonId) {
-      this.pokemon = this.pokemonService.getPokemonById(+pokemonId);
+      this.pokemonService.getPokemonById(+pokemonId)
+          .subscribe(pokemon => this.pokemon = pokemon);
     } else {
       this.pokemon = undefined;
     }
